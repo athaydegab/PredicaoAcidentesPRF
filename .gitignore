@@ -7,8 +7,7 @@ env/
 
 # ==========================================
 # DADOS (CRÍTICO)
-# Ignora todos os arquivos dentro das pastas de dados,
-# mas permite que a estrutura de pastas suba pro Git.
+# Ignora todos os arquivos dentro das pastas de dados, mas permite que a estrutura de pastas suba pro Git.
 # ==========================================
 data/raw/*
 data/processed/*
