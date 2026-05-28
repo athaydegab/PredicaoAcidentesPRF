@@ -1,0 +1,39 @@
+# ==========================================
+# AMBIENTE VIRTUAL E DEPENDÊNCIAS
+# ==========================================
+venv/
+env/
+.env
+
+# ==========================================
+# DADOS (CRÍTICO)
+# Ignora todos os arquivos dentro das pastas de dados,
+# mas permite que a estrutura de pastas suba pro Git.
+# ==========================================
+data/raw/*
+data/processed/*
+*.csv
+*.xlsx
+*.parquet
+
+# Exceção: Mantém arquivos .gitkeep para preservar a estrutura de diretórios vazia
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# ==========================================
+# JUPYTER NOTEBOOKS E PYTHON
+# ==========================================
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# ==========================================
+# CONFIGURAÇÕES DE IDE E SISTEMA OPERACIONAL
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

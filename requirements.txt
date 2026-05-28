@@ -1,0 +1,15 @@
+# Ambiente de Desenvolvimento
+jupyter
+ipykernel
+
+# Manipulação e Tratamento de Dados
+pandas
+polars
+numpy
+
+# Visualização de Dados (Essencial para análise de outliers)
+matplotlib
+seaborn
+
+# Machine Learning, Pre-processamento e Métricas
+scikit-learn
