@@ -13,3 +13,10 @@ seaborn
 
 # Machine Learning, Pre-processamento e Métricas
 scikit-learn
+
+# Leitura de Excel (.xlsx) do DNIT
+openpyxl
+
+# Download dos dados (PRF via Google Drive, DNIT via Kaggle)
+gdown
+kagglehub
