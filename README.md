@@ -29,7 +29,8 @@ condição da infraestrutura do **DNIT** (ICC, ICP e ICM).
 │   ├── raw/             # Brutos: dnit_consolidado.csv + acidentes{ano}.csv (ignorados pelo Git)
 │   └── processed/       # Bases estruturadas geradas pelo notebook (ignorados pelo Git)
 ├── notebooks/
-│   └── notebook_completo.ipynb   # Notebook ÚNICO de estruturação (DNIT + PRF)
+│   ├── notebook_completo.ipynb   # Estruturação (DNIT + PRF) — recorte região Norte
+│   └── notebook_brasil.ipynb     # Mesma estruturação — recorte Brasil inteiro (todas as UFs)
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -74,6 +75,22 @@ jupyter notebook notebooks/notebook_completo.ipynb
 
 Resultado: **~20 mil trechos** (DNIT) e **~21 mil acidentes** (PRF), com **~95% dos
 acidentes** casados ao ICM do trecho.
+
+## 🇧🇷 Variante Brasil (`notebook_brasil.ipynb`)
+
+Mesma estruturação do `notebook_completo`, mas com **escopo nacional**: remove o filtro de UF
+(todas as 27 UFs) e recalcula o **Top 10 BRs a nível Brasil** — `364, 230, 116, 101, 158,
+153, 316, 174, 242, 010`. Gera arquivos **paralelos** (`*_brasil.csv`), preservando as bases
+do Norte. O `base_modelagem_brasil.csv` tem o **mesmo schema** (38 colunas, mesma ordem) do
+`base_modelagem.csv`, então a análise exploratória feita sobre o Norte roda **só trocando o
+caminho do CSV**.
+
+Resultado: **~44 mil trechos** (DNIT) e **~209 mil acidentes** (PRF).
+
+> ⚠️ **Cobertura de ICM menor no Brasil:** ~**45%** dos acidentes casam com o ICM do trecho
+> (contra ~95% no Norte). O volume nacional concentra-se em BR-101 e BR-116, onde a avaliação
+> do DNIT é desigual entre UFs. Análises/modelos que dependem do ICM devem tratar os ~55% de
+> linhas com `icm`/`icc`/`icp` ausentes (dropna, imputação ou recorte por BRs bem cobertas).
 
 ## 📋 Próximas etapas
 
