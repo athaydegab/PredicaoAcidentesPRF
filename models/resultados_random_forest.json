@@ -1,9 +1,0 @@
-{
-  "chave": "random_forest",
-  "algoritmo": "Random Forest",
-  "acuracia": 0.8541,
-  "precision": 0.4383,
-  "recall": 0.4412,
-  "auc_score": 0.8242,
-  "tempo_segundos": 11.4813
-}
