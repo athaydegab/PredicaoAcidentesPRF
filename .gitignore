@@ -34,3 +34,7 @@ __pycache__/
 Thumbs.db
 
 *.pkl
+
+graphify-out/
+_graphify_src/
+models/*

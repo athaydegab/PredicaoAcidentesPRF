@@ -8,7 +8,7 @@ import re
 import unicodedata
 
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GroupShuffleSplit, train_test_split
 from sklearn.preprocessing import StandardScaler
 
 CAMINHO_PADRAO = '../data/processed/data_model/dados_model.csv'
@@ -96,9 +96,21 @@ def carregar_dados(caminho_csv=CAMINHO_PADRAO, test_size=0.3, random_state=42):
     # Nomes de colunas seguros para XGBoost/LightGBM, que rejeitam [ ] < >
     X_final.columns = X_final.columns.str.replace(r'[\[\]<>]', '', regex=True)
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X_final, y, test_size=test_size, random_state=random_state, stratify=y
-    )
+    if 'id' in df.columns:
+        # Split por grupo (acidente): cada acidente pode gerar várias linhas (uma por
+        # envolvido/veículo). Um split aleatório por linha deixaria envolvidos do MESMO
+        # acidente em treino e teste simultaneamente, vazando as condições da via/clima
+        # daquele acidente entre os dois conjuntos. GroupShuffleSplit garante que todo
+        # acidente cai inteiramente em um lado só.
+        splitter = GroupShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)
+        idx_train, idx_test = next(splitter.split(X_final, y, groups=df['id']))
+        X_train, X_test = X_final.iloc[idx_train].copy(), X_final.iloc[idx_test].copy()
+        y_train, y_test = y.iloc[idx_train], y.iloc[idx_test]
+    else:
+        # Fallback para CSVs gerados antes da coluna 'id' ser preservada no notebook 02
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_final, y, test_size=test_size, random_state=random_state, stratify=y
+        )
 
     scaler = StandardScaler()
     X_train = X_train.copy()
