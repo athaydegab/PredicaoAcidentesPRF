@@ -38,3 +38,7 @@ Thumbs.db
 graphify-out/
 _graphify_src/
 models/*
+# Excecao: modelo real usado em producao pelo app.py (pequeno, precisa estar no repo
+# para o Streamlit Cloud conseguir clonar e rodar o app)
+!models/modelo_xgboost_calibrado.pkl
+!models/colunas_treino.pkl
