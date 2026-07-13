@@ -170,11 +170,7 @@ with col1:
     fig_gauge.update_layout(height=300, paper_bgcolor="rgba(0,0,0,0)", margin=dict(l=20, r=20, t=50, b=10))
     st.plotly_chart(fig_gauge, width="stretch")
 
-    status_icon = {
-        "good": ":material/check_circle:",
-        "warning": ":material/warning:",
-        "critical": ":material/error:",
-    }[danger_status]
+    
     st.markdown(f"""
         <div class="risk-box" style="border-left: 6px solid {status_color};">
             <h3 style="margin:0;">{status_icon} Periculosidade {danger_label.upper()}</h3>
