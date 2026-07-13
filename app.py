@@ -236,8 +236,6 @@ with col2:
 
     st.caption(
         "Pesos = odds ratio marginal do modelo XGBoost calibrado (`models/modelo_xgboost_calibrado.pkl`), "
-        "medido isolando cada categoria contra o cenário de referência. Formato da via (Reta/Curva) e "
-        "inclinação (Aclive/Declive) são mutuamente exclusivos - nunca coexistem nos dados reais; os demais "
-        "elementos do traçado podem ser combinados livremente. Variáveis não expostas aqui (BR, sentido da "
-        "via, dia da semana, uso do solo, índices de conservação da via) ficam na condição de referência/média."
+        "medido isolando cada categoria contra o cenário de referência.  "
+        "Variáveis não expostas aqui (BR, sentido da via, dia da semana, uso do solo, índices de conservação da via) ficam na condição de referência/média."
     )
