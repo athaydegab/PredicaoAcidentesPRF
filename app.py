@@ -173,7 +173,7 @@ with col1:
     
     st.markdown(f"""
         <div class="risk-box" style="border-left: 6px solid {status_color};">
-            <h3 style="margin:0;">{status_icon} Periculosidade {danger_label.upper()}</h3>
+            <h3 style="margin:0;"> Periculosidade {danger_label.upper()}</h3>
             <p style="font-size: 15px; color:{INK_SECONDARY}; margin-top:8px;">
                 A probabilidade estimada de acidente grave ou fatal neste cenário é de
                 <b style="color:{INK_PRIMARY}">{probabilidade:.1%}</b>, frente a uma taxa média de
